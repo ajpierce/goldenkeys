@@ -10,8 +10,8 @@ class Mailer(object):
     def __init__(self):
         # Get the sendmail credentials
         try:
-            #stream = file('config/sendmail.yaml', 'r')
-            stream = file('config/real_sendmail.yaml', 'r')
+            stream = file('config/sendmail.yaml', 'r')
+            #stream = file('config/real_sendmail.yaml', 'r')
             self.credentials = yaml.load(stream)
         except Exception as ex:
             raise Exception("Failed to load gmail credentails: %s" % ex)
