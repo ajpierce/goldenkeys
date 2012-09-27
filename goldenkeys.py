@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-#from lib.twitter_query import TwitterQuery
+from lib.twitter_query import TwitterQuery
 from lib.mailer import Mailer
 
 """
@@ -15,12 +15,13 @@ everybody (in config/listserv.yaml) and we all login frantically to try and
 get more keys.
 """
 def main():
-    #tq = TwitterQuery()
-    mailer = Mailer()
-    mailer.mail(
-        'Test Subject',
-        'Look, you just got a test email from piercebot!'
-    )
+    tq = TwitterQuery()
+    code_tweets = tq.query_twitter()
+    if code_tweets:
+        print "Found some shift codes! Sending mail..."
+        mailer = Mailer()
+        subject = "SHIFT CODE(S) DETECTED!"
+        mailer.mail(subject, "\n".join(code_tweets))
 
 if __name__ == '__main__':
     main()

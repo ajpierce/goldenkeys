@@ -1,0 +1,5 @@
+# The list of twitter handles that dish out SHIFT codes.
+# NOTE: If you change this file, delete config/refresh_url.txt!
+- DuvalMagic
+- GearboxSoftware
+#- _piercebot
