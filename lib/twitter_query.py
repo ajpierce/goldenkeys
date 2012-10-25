@@ -31,6 +31,8 @@ class TwitterQuery(object):
         try:
             search_params = open(URL_CACHE, 'r').read()
             os.remove(URL_CACHE)
+            if search_params.strip() == '':
+                raise Exception('empty query!')
             #print "cached search params are: %s" % search_params
         except Exception as ex:
             print "Looks like we can't get a refresh url: %s" % ex
